@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel ="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/441a3aba14.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container px-4 py-5 is-responsive">
+      <div class="box custom-style has-text-centered has-background-danger-dark">
+          <h1 class="has-text-white is-size-3 p-1 has-text-weight-bold">
+            To-Do-List
+          </h1>
+      </div>
+      <div class="tile is-ancestor is-responsive">
+        <div class="tile is-parent">
+          <div class="tile is-child box custom-border">
+            <h1 class="has-text-black is-size-4 has-text-centered p-1 has-text-weight-bold">
+              Add Task
+            </h1>
+            <div class="is-flex m-2 has-text-centered">
+              <input type="text" placeholder="Add Task" id="Taskinsertion" oninput="taskinsertion(this.value)" class="input is-normal is-info is-rounded placeholder-indent mr-4">
+              <button class="button is-info is-normal is-rounded trigger-modal" id="deadlinebutton" >Set Deadline</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child box custom-border" style="border-color:#47C68D">
+              <h1 class="has-text-black is-size-4 has-text-centered p-1 has-text-weight-bold">
+                Tasks
+              </h1>
+                <table class="table is-striped is-hoverable is-fullwidth is-responsive  is-justify-content-center is-align-content-center" id="tasktable">
+                  <thead>
+                    <tr>
+                      <th class="has-text-centered is-size-5 has-text-weight-bold">Task</th>
+                      <th class="has-text-centered is-size-5 has-text-weight-bold">Due Date</th>
+                      <th class="has-text-centered is-size-5 has-text-weight-bold">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>  
+            </div>
+          </div>
+          <div class="tile is-4 is-parent">
+            <div class="tile is-child box custom-border" style="border-color:#3E8ED0">
+              <h1 class="has-text-black is-size-4 has-text-centered p-1 has-text-weight-bold">
+                Finished Tasks
+              </h1>
+              <table class="table is-striped is-hoverable is-fullwidth is-responsive  is-justify-content-center is-align-content-center" id="donetable">
+                <thead>
+                  <tr>
+                    <th class="has-text-centered is-size-5 has-text-weight-bold">Task</th>
+                    <th class="has-text-centered is-size-5 has-text-weight-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--Done tasks are placed here-->
+                </tbody>
+              </table>
+    <div class="modal" id="deadlinemodal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head is-justify-content-space-between">
+            <p class="modal-class-title has-text-black is-size-4 has-text-weight-normal" id="task">
+              <!--Task inserted is display here-->
+            </p>
+            <div class="button is-normal is-danger" onclick="modalclose('deadlinemodal')" >
+              <span class="material-symbols-outlined">
+                close
+                </span>
+            </div>
+        </header>
+        <section class="modal-card-body is-justify-content-space-evenly ">
+          <input class="input is-normal mt-4" type="date" Title="Set Date" id="userdatedeadline">
+          <input class="input is-normal mt-4" type="time" Title="Set time" id="usertimedeadline">
+        </section>
+        <footer class="modal-card-foot is-justify-content-right">
+          <button class="button is-normal is-primary has-text-white" onclick="validateinfos()">
+              Done
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
